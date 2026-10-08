@@ -1,0 +1,23 @@
+info:
+  name: REGISTER
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{HOST}}{{SANUS_SUITE}}{{API}}{{V1}}/auth/register"
+  body:
+    type: json
+    data: |-
+      {
+        "username": "rascencio@sanusmed.com",
+        "password": "ascencio",
+        "fullName": "Ascencio",
+        "tenantId": "CLINICA-GDI-01"
+      }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

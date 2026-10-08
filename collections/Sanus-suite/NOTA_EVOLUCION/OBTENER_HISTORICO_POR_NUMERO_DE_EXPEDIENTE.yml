@@ -1,0 +1,24 @@
+info:
+  name: OBTENER_HISTORICO_POR_NUMERO_DE_EXPEDIENTE
+  type: http
+  seq: 6
+
+http:
+  method: get
+  url: "{{HOST}}{{SANUS_SUITE}}/notas-evolucion{{API}}{{V1}}/expediente/EXP-CLINICA-GDI-01-2026-0004"
+  headers:
+    - name: Accept
+      value: application/json
+    - name: x-tenant-id
+      value: CLINICA-GDI-01
+    - name: x-usuario-id
+      value: "1"
+  auth:
+    type: bearer
+    token: "{{JWT_TOKEN}}"
+
+settings:
+  encodeUrl: false
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

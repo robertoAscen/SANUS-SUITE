@@ -1,0 +1,42 @@
+info:
+  name: LOGIN
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{HOST}}{{SANUS_SUITE}}{{API}}{{V1}}/auth/login"
+  body:
+    type: json
+    data: |-
+      {
+        "username": "rascencio@sanusmed.com",
+        "password": "ascencio"
+      }
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        // 1. Verificar que la respuesta haya sido exitosa (Status 200)
+        if (res.getStatus() === 200) {
+            // 2. Parsear el cuerpo de la respuesta
+            const data = res.getBody();
+            
+            // 3. Extraer el token según la estructura de tu RespuestaApi
+            // Si tu token viaja en 'resultado.token' o directo en 'resultado', ajusta esta línea:
+            const token = data.resultado && data.resultado.token ? data.resultado.token : data.resultado;
+            if (token) {
+                // 4. Guardar el token en la variable de entorno de forma automática
+                bru.setVar("JWT_TOKEN", token);
+                console.log("🚀 [Sanus Suite] Token JWT almacenado correctamente en el entorno.");
+            } else {
+                console.warn("⚠️ No se encontró el token en el atributo 'resultado' de la respuesta.");
+            }
+        }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

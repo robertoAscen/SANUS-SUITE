@@ -1,0 +1,22 @@
+info:
+  name: FIRMAR_NOTA
+  type: http
+  seq: 3
+
+http:
+  method: patch
+  url: "{{HOST}}{{SANUS_SUITE}}/notas-evolucion{{API}}{{V1}}/1/firmar?medicoId=7"
+  headers:
+    - name: Content-Type
+      value: application/json
+  params:
+    - name: medicoId
+      value: "7"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: false
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

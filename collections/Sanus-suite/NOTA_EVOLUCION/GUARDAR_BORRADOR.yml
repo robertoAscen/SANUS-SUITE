@@ -1,0 +1,61 @@
+info:
+  name: GUARDAR_BORRADOR
+  type: http
+  seq: 1
+
+http:
+  method: post
+  url: "{{HOST}}{{SANUS_SUITE}}/notas-evolucion{{API}}{{V1}}/guardar"
+  headers:
+    - name: Content-Type
+      value: application/json
+    - name: x-tenant-id
+      value: CLINICA-GDI-01
+    - name: x-usuario-id
+      value: "1"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"expedienteId\": 1001,\r
+
+      \  \"pacienteId\": 42,\r
+
+      \  \"medicoId\": 7,\r
+
+      \  \"historiaClinicaId\": 12,\r
+
+      \  \"subjetivo\": \"Paciente masculino de 38 años acude a consulta de seguimiento refiriendo mejoría notable del dolor articular tras tratamiento previo.\",\r
+
+      \  \"objetivo\": \"Signos vitales estables. Exploración física: arcos de movimiento completos, sin presencia de edema ni eritema.\",\r
+
+      \  \"analisis\": \"Evolución favorable de la lumbalgia mecánica. Se ratifica diagnóstico previo.\",\r
+
+      \  \"planTratamiento\": \"Continuar con régimen de ejercicios de bajo impacto. Cita de control en 4 semanas o en caso de alarma.\",\r
+
+      \  \"presionArterial\": \"120/80\",\r
+
+      \  \"frecuenciaCardiaca\": 72,\r
+
+      \  \"frecuenciaRespiratoria\": 16,\r
+
+      \  \"temperatura\": 36.6,\r
+
+      \  \"peso\": 78.5,\r
+
+      \  \"talla\": 1.78,\r
+
+      \  \"imc\": 24.78,\r
+
+      \  \"saturacionOxigeno\": 98\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{JWT_TOKEN}}"
+
+settings:
+  encodeUrl: false
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,63 @@
+info:
+  name: ACTUALIZAR_BORRADOR
+  type: http
+  seq: 2
+
+http:
+  method: post
+  url: "{{HOST}}{{SANUS_SUITE}}/notas-evolucion{{API}}{{V1}}notas-evolucion"
+  headers:
+    - name: Content-Type
+      value: application/json
+    - name: x-tenant-id
+      value: CLINICA-GDI-01
+    - name: x-usuario-id
+      value: "1"
+  body:
+    type: json
+    data: "{\r
+
+      \  \"id\": 1,\r
+
+      \  \"expedienteId\": 1001,\r
+
+      \  \"pacienteId\": 42,\r
+
+      \  \"medicoId\": 7,\r
+
+      \  \"historiaClinicaId\": 12,\r
+
+      \  \"subjetivo\": \"Paciente reporta leve molestia muscular secundaria a rutina física intensa.\",\r
+
+      \  \"objetivo\": \"Puntos gatillo palpables en región lumbar baja.\",\r
+
+      \  \"analisis\": \"Sobrecarga muscular leve.\",\r
+
+      \  \"planTratamiento\": \"Relajante muscular por 3 días y aplicación de compresas calientes.\",\r
+
+      \  \"presionArterial\": \"118/78\",\r
+
+      \  \"frecuenciaCardiaca\": 68,\r
+
+      \  \"frecuenciaRespiratoria\": 15,\r
+
+      \  \"temperatura\": 36.5,\r
+
+      \  \"peso\": 78.0,\r
+
+      \  \"talla\": 1.78,\r
+
+      \  \"imc\": 24.62,\r
+
+      \  \"saturacionOxigeno\": 99\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{JWT_TOKEN}}"
+
+settings:
+  encodeUrl: false
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

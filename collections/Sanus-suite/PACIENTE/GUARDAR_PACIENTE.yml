@@ -1,0 +1,38 @@
+info:
+  name: GUARDAR_PACIENTE
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{HOST}}{{SANUS_SUITE}}/pacientes{{API}}{{V1}}/guardar"
+  headers:
+    - name: x-tenant-id
+      value: CLINICA-GDI-01
+    - name: x-usuario-id
+      value: "1"
+  body:
+    type: json
+    data: |-
+      {
+          "nombre": "Margo",
+          "apellidoPaterno": "Robies",
+          "apellidoMaterno": "R",
+          "curp": "WQCA870520HJCLPR01", 
+          "fechaNacimiento": "1989-05-20",
+          "sexo": "F",
+          "direccion": "Guadalajara, Jalisco, MX",
+          "telefono": "3312345678",
+          "contactoEmergenciaNombre": "Roberto A.",
+          "contactoEmergenciaTelefono": "3333333333",
+          "contactoEmergenciaParentesco": "querido"
+      }
+  auth:
+    type: bearer
+    token: "{{JWT_TOKEN}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

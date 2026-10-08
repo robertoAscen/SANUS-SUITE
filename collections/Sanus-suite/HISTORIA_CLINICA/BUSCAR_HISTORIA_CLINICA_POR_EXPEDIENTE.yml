@@ -1,0 +1,22 @@
+info:
+  name: BUSCAR_HISTORIA_CLINICA_POR_EXPEDIENTE
+  type: http
+  seq: 2
+
+http:
+  method: get
+  url: "{{HOST}}{{SANUS_SUITE}}/historias-clinicas{{API}}{{V1}}/expediente/EXP-CLINICA-GDI-01-2026-0006"
+  headers:
+    - name: x-tenant-id
+      value: CLINICA-GDI-01
+    - name: x-usuario-id
+      value: "1"
+  auth:
+    type: bearer
+    token: "{{JWT_TOKEN}}"
+
+settings:
+  encodeUrl: false
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

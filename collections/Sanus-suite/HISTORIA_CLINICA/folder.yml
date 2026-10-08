@@ -1,0 +1,7 @@
+info:
+  name: HISTORIA_CLINICA
+  type: folder
+  seq: 4
+
+request:
+  auth: inherit

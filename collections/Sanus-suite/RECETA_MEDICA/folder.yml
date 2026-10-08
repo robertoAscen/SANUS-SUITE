@@ -1,0 +1,7 @@
+info:
+  name: RECETA_MEDICA
+  type: folder
+  seq: 6
+
+request:
+  auth: inherit

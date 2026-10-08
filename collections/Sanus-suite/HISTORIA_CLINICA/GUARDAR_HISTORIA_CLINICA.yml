@@ -1,0 +1,40 @@
+info:
+  name: GUARDAR_HISTORIA_CLINICA
+  type: http
+  seq: 1
+
+http:
+  method: post
+  url: "{{HOST}}{{SANUS_SUITE}}/historias-clinicas{{API}}{{V1}}/guardar"
+  headers:
+    - name: Content-Type
+      value: application/json
+    - name: x-tenant-id
+      value: CLINICA-GDI-01
+  body:
+    type: json
+    data: |-
+      {
+          "id": 6,
+          "numeroExpediente": "EXP-CLINICA-GDI-01-2026-0004",
+          "motivoConsulta": "DOLOR DE CABEZA y algo mas",
+          "padecimientoActual": "LE DUELE EL CUELLO PORQUE NO PUEDE LA CABEZA DE TAN GRANDE",
+          "antecedentesHeredofamiliares": "MADRE CON DIABETES Y EL PADRE TAMBIEN",
+          "antecedentesPatologicos": "TIENE ALERGIA A LOS HONGOS VENENOSOS",
+          "antecedentesNoPatologicos": "CICLISMO MTB",
+          "interrogatorioAparatosSistemas": "NO SE DEJO PREGUNTAR NADA",
+          "exploracionFisica": "SE REVISO Y SE NOTO QUE NO TENIA ROPA",
+          "diagnostico": "ALGO A DE TENER asdfasdfasdf",
+          "planTratamiento": "UNAS PASTILLAS",
+          "medicoDictaminador": null,
+          "firmado": false
+      }
+  auth:
+    type: bearer
+    token: "{{JWT_TOKEN}}"
+
+settings:
+  encodeUrl: false
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

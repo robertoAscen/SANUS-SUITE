@@ -1,0 +1,12 @@
+opencollection: 1.0.0
+info:
+  name: "SANUS-SUITE"
+  type: workspace
+
+collections:
+  - name: "Sanus-suite"
+    path: "collections/Sanus-suite"
+
+specs:
+
+docs: ''
