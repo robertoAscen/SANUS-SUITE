@@ -8,9 +8,9 @@ http:
   url: "{{HOST}}{{SANUS_SUITE}}/pacientes{{API}}{{V1}}/guardar"
   headers:
     - name: x-tenant-id
-      value: CLINICA-GDI-01
+      value: "{{TENANT_ID}}"
     - name: x-usuario-id
-      value: "1"
+      value: "{{USUARIO_ID}}"
   body:
     type: json
     data: |-
@@ -36,3 +36,4 @@ settings:
   timeout: 0
   followRedirects: true
   maxRedirects: 5
+  forwardAuthorizationHeader: true

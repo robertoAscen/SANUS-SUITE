@@ -1,0 +1,16 @@
+name: DEV
+variables:
+  - name: HOST
+    value: http://localhost:8080
+  - name: SANUS_SUITE
+    value: /sanus-suite
+  - name: API
+    value: /api
+  - name: V1
+    value: /v1
+  - name: V2
+    value: /v2
+  - name: TENANT_ID
+    value: CLINICA-GDI-01
+  - name: USUARIO_ID
+    value: "1"

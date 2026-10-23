@@ -1,0 +1,40 @@
+info:
+  name: AGENDAR_CITA
+  type: http
+  seq: 2
+
+http:
+  method: post
+  url: "{{HOST}}{{SANUS_SUITE}}/citas{{API}}{{V1}}/agendar"
+  headers:
+    - name: x-tenant-id
+      value: CLINICA-GDI-01
+    - name: x-usuario-id
+      value: "1"
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: "{\r
+
+      \  \"pacienteId\": 1,\r
+
+      \  \"fechaHoraInicio\": \"2026-10-21T12:00:00\",\r
+
+      \  \"fechaHoraFin\": \"2026-10-21T12:30:00\",\r
+
+      \  \"motivoConsulta\": \"Prueba de agendamiento directo\",\r
+
+      \  \"observaciones\": \"Consulta de validación\"\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{JWT_TOKEN}}"
+
+settings:
+  encodeUrl: false
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

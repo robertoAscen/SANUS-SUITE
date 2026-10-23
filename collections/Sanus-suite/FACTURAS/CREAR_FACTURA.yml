@@ -1,0 +1,58 @@
+info:
+  name: CREAR_FACTURA
+  type: http
+  seq: 2
+
+http:
+  method: post
+  url: "{{HOST}}{{SANUS_SUITE}}/facturas{{API}}{{V1}}/crear"
+  headers:
+    - name: x-tenant-id
+      value: CLINICA-GDI-01
+    - name: x-usuario-id
+      value: "1"
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: "{\r
+
+      \  \"pacienteId\": 1,\r
+
+      \  \"pacienteNombre\": \"JANETH MEDINA LOPEZ\",\r
+
+      \  \"subtotal\": 500.00,\r
+
+      \  \"impuestos\": 80.00,\r
+
+      \  \"total\": 580.00,\r
+
+      \  \"detalles\": [\r
+
+      \    {\r
+
+      \      \"productoId\": null,\r
+
+      \      \"descripcion\": \"Consulta Médica General\",\r
+
+      \      \"cantidad\": 1,\r
+
+      \      \"precioUnitario\": 500.00,\r
+
+      \      \"subtotal\": 500.00\r
+
+      \    }\r
+
+      \  ]\r
+
+      }"
+  auth:
+    type: bearer
+    token: "{{JWT_TOKEN}}"
+
+settings:
+  encodeUrl: false
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
