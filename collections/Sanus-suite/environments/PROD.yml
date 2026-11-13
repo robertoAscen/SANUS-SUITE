@@ -1,0 +1,23 @@
+name: PROD
+variables:
+  - name: HOST
+    value: http://178.128.184.223:8080
+    description: ""
+  - name: SANUS_SUITE
+    value: /sanus-suite
+    description: ""
+  - name: API
+    value: /api
+    description: ""
+  - name: V1
+    value: /v1
+    description: ""
+  - name: V2
+    value: /v2
+    description: ""
+  - name: TENANT_ID
+    value: CLINICA-GDI-01
+    description: ""
+  - name: USUARIO_ID
+    value: "1"
+    description: ""
